@@ -1,0 +1,31 @@
+<Typography
+component="h5"
+variant="h7"
+align="center"
+color="#5c9499"
+gutterBottom
+sx={{
+  bgcolor: "#ededed",
+  p: "7px 0",
+  border: "1px solid #d3d3d3",
+}}
+>
+QR CODES AVAILABLE FOR
+</Typography>
+
+      <Box component="div" sx={{ display: "flex", justifyContent: "flex-end" }}>
+        <Button
+          type="button"
+          variant="contained"
+          sx={{
+            m: 2,
+            bgcolor: "#5c9499",
+            "&:hover": {
+              bgcolor: "#387075",
+            },
+          }}
+          endIcon={<LocalPrintshopIcon />}
+        >
+          Print Codes
+        </Button>
+      </Box>
