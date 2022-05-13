@@ -66,7 +66,7 @@ const DisplayQr = ({ data, setModal2 }) => {
                 className="__qr_code"
                 src={`${item.path}?w=164&h=164&fit=crop&auto=format`}
                 srcSet={`${item.path}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                alt="qr code"
+                alt=""
               />
             </div>
           ))}
@@ -163,7 +163,7 @@ const DisplayQr = ({ data, setModal2 }) => {
               );
             }}
             removeAfterPrint={true}
-            onAfterPrint={() => clearQr()}
+            // onAfterPrint={() => clearQr()}
           />
         </Box>
       </Box>

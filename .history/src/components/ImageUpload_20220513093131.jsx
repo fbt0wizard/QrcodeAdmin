@@ -35,12 +35,12 @@ class App extends React.Component {
   };
 
   handleChange = ({ fileList }) => {
-    console.log(fileList)
+    // console.log(fileList)
     this.setState({ fileList })
   }
 
   render() {
-      const p = {folder: "images"}
+      const p = {folder: "product"}
     const { previewVisible, previewImage, fileList, previewTitle } = this.state;
     const uploadButton = (
       <div>
@@ -59,7 +59,7 @@ class App extends React.Component {
           onPreview={this.handlePreview}
           onChange={this.handleChange}
         >
-          {fileList.length === 1 ? null : uploadButton}
+          {fileList.length !== 1 ? null : uploadButton}
         </Upload>
         <Modal
         zIndex={2000}

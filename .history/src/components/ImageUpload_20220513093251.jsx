@@ -40,7 +40,7 @@ class App extends React.Component {
   }
 
   render() {
-      const p = {folder: "images"}
+      const p = {folder: "product"}
     const { previewVisible, previewImage, fileList, previewTitle } = this.state;
     const uploadButton = (
       <div>

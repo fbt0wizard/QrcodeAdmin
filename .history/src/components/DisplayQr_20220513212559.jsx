@@ -163,7 +163,7 @@ const DisplayQr = ({ data, setModal2 }) => {
               );
             }}
             removeAfterPrint={true}
-            onAfterPrint={() => clearQr()}
+            // onAfterPrint={() => clearQr()}
           />
         </Box>
       </Box>

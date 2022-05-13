@@ -138,23 +138,3 @@ export const deleteData = async (endpoint) => {
     console.log({ error: error });
   }
 };
-
-export const postFile = async (action, data = {}) => {
-  const headers = setHeader(true);
-  const baseUrl = "https://qrcode.gohealthy.ng/";
-
-  for (var pair of apnData(data).entries()) {
-      console.log(pair[0]+ ', ' + pair[1]); 
-  }
-  try {
-      let response = await fetch(`${baseUrl}${action}`, {
-          method: 'POST',
-          headers,
-          body: apnData(data)
-      });
-      let responseJson = await response.json();
-      return responseJson;
-  } catch (error) {
-      return { status: 606, result: 'Network request failed', error: error };
-  }
-}

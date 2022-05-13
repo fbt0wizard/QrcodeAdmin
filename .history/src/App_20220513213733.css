@@ -87,7 +87,7 @@ a {
   justify-content: center;
 }
 .__qr_wrapper {
-  border: 1px solid rgb(198, 198, 198);
+  border: 1px solid #666;
   border-radius: 3px;
   display: flex;
   align-items: center;

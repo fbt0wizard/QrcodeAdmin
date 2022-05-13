@@ -142,7 +142,7 @@ export const deleteData = async (endpoint) => {
 export const postFile = async (action, data = {}) => {
   const headers = setHeader(true);
   const baseUrl = "https://qrcode.gohealthy.ng/";
-
+  // console.log(apnData(data), data)
   for (var pair of apnData(data).entries()) {
       console.log(pair[0]+ ', ' + pair[1]); 
   }
