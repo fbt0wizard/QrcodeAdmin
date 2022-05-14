@@ -9,7 +9,6 @@ import ViewComfyIcon from "@mui/icons-material/ViewComfy";
 
 const DisplayQr = ({ data, setModal2 }) => {
   const qrcode = useRef(null);
-  const progress = useRef(null)
   const { products } = useSelector((state) => state.data);
 
   const [form, setForm] = useState(true);
@@ -39,17 +38,6 @@ const DisplayQr = ({ data, setModal2 }) => {
     console.log(res);
     setModal2(false);
   };
-
-  // display number of qr code loaded and enable print button once all qr code is loaded
-  const displayCount = (loaded) => {
-    if(loaded === validqr.length) {
-      setCount(loaded)
-    }
-    progress.current.innerText = `${loaded}/${validqr.length}`
-  }
-  
-
-
   return (
     <div style={{ height: "100%", width: "100%" }}>
       <Box
@@ -68,6 +56,20 @@ const DisplayQr = ({ data, setModal2 }) => {
           sx={{ fontSize: 15, p: "7px 0", textTransform: "capitalize" }}
         >
           QR CODES Available for {pickedProduct[0].name}
+          <span
+            style={{
+              fontSize: 14,
+              marginLeft: 14,
+              color: "#565656",
+            }}
+          >
+            <i
+              style={{ fontSize: 15 }}
+              className="fa fa-spinner fa-spin"
+              aria-hidden="true"
+            ></i>
+            {`${count}/${validqr.length}`}
+          </span>
         </Typography>
       </Box>
       <Container component="section" maxWidth="sm" sx={{ zIndex: 0 }}>
@@ -79,7 +81,7 @@ const DisplayQr = ({ data, setModal2 }) => {
                 src={`${item.path}?w=164&h=164&fit=crop&auto=format`}
                 srcSet={`${item.path}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt="qr code"
-                onLoad={() => displayCount(index + 1)}
+                onLoad={() => setCount(index + 1)}
               />
             </div>
           ))}
@@ -164,7 +166,6 @@ const DisplayQr = ({ data, setModal2 }) => {
                   type="button"
                   variant="contained"
                   sx={{
-                    width: 136,
                     m: 2,
                     bgcolor: "#5c9499",
                     "&:hover": {
@@ -173,25 +174,7 @@ const DisplayQr = ({ data, setModal2 }) => {
                   }}
                   endIcon={<PrintIcon />}
                 >
-                  {count === validqr.length ? (
-                    "Print Codes"
-                  ) : (
-                    <span
-                    ref={progress}
-                      style={{
-                        fontSize: 14,
-                        marginLeft: 14,
-                        color: "#565656",
-                      }}
-                    >
-                      <i
-                        style={{ fontSize: 15, marginRight: 6 }}
-                        className="fa fa-spinner fa-spin"
-                        aria-hidden="true"
-                      ></i>
-                      {`${count}/${validqr.length}`}
-                    </span>
-                  )}
+                  Print Codes
                 </Button>
               );
             }}

@@ -19,6 +19,7 @@ import ListItems from "../../components/ListItems";
 import Controler from "../../dashboard_routes/index";
 import { FaHospital } from "react-icons/fa";
 
+
 const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
@@ -49,7 +50,7 @@ const Drawer = styled(MuiDrawer, {
     whiteSpace: "nowrap",
     backgroundColor: "#5c9499",
     width: drawerWidth,
-    transition: theme.transitions.create("width", {
+    transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),

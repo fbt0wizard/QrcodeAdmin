@@ -39,8 +39,8 @@ const DisplayQr = ({ data, setModal2 }) => {
     console.log(res);
     setModal2(false);
   };
+  console.log(count)
 
-  // display number of qr code loaded and enable print button once all qr code is loaded
   const displayCount = (loaded) => {
     if(loaded === validqr.length) {
       setCount(loaded)

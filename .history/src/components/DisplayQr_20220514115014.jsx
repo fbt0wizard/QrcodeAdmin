@@ -39,17 +39,7 @@ const DisplayQr = ({ data, setModal2 }) => {
     console.log(res);
     setModal2(false);
   };
-
-  // display number of qr code loaded and enable print button once all qr code is loaded
-  const displayCount = (loaded) => {
-    if(loaded === validqr.length) {
-      setCount(loaded)
-    }
-    progress.current.innerText = `${loaded}/${validqr.length}`
-  }
-  
-
-
+  console.log(count)
   return (
     <div style={{ height: "100%", width: "100%" }}>
       <Box
@@ -79,7 +69,10 @@ const DisplayQr = ({ data, setModal2 }) => {
                 src={`${item.path}?w=164&h=164&fit=crop&auto=format`}
                 srcSet={`${item.path}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt="qr code"
-                onLoad={() => displayCount(index + 1)}
+                onLoad={() => {
+                  index + 1 === validqr.length ? setCount(index + 1) : null
+                  console.log(progress.current)
+                }}
               />
             </div>
           ))}
@@ -203,5 +196,7 @@ const DisplayQr = ({ data, setModal2 }) => {
     </div>
   );
 };
+
+const displayCount = ()
 
 export default DisplayQr;

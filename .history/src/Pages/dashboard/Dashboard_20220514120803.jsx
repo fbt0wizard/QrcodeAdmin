@@ -19,55 +19,6 @@ import ListItems from "../../components/ListItems";
 import Controler from "../../dashboard_routes/index";
 import { FaHospital } from "react-icons/fa";
 
-const drawerWidth = 240;
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  zIndex: theme.zIndex.drawer + 1,
-  backgroundColor: "#fff",
-  boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-  transition: theme.transitions.create(["width", "margin"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
-
-const Drawer = styled(MuiDrawer, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  "& .MuiDrawer-paper": {
-    position: "relative",
-    whiteSpace: "nowrap",
-    backgroundColor: "#5c9499",
-    width: drawerWidth,
-    transition: theme.transitions.create("width", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    boxSizing: "border-box",
-    ...(!open && {
-      overflowX: "hidden",
-      transition: theme.transitions.create("width", {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-      width: theme.spacing(7),
-      [theme.breakpoints.up("sm")]: {
-        width: theme.spacing(9),
-      },
-    }),
-  },
-}));
-
 const Dashboard = () => {
   const dispatch = useDispatch();
   const { userDetails } = useSelector((state) => state.userData);
@@ -78,6 +29,55 @@ const Dashboard = () => {
   const toggleDrawer = () => {
     setOpen(!open);
   };
+
+  const drawerWidth = 240;
+
+  const AppBar = styled(MuiAppBar, {
+    shouldForwardProp: (prop) => prop !== "open",
+  })(({ theme, open }) => ({
+    zIndex: theme.zIndex.drawer + 1,
+    backgroundColor: "#fff",
+    boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+    transition: theme.transitions.create(["width", "margin"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    ...(open && {
+      marginLeft: drawerWidth,
+      width: `calc(100% - ${drawerWidth}px)`,
+      transition: theme.transitions.create(["width", "margin"], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+    }),
+  }));
+
+  // const Drawer = styled(MuiDrawer, {
+  //   shouldForwardProp: (prop) => prop !== "open",
+  // })(({ theme, open }) => ({
+  //   "& .MuiDrawer-paper": {
+  //     position: "relative",
+  //     whiteSpace: "nowrap",
+  //     backgroundColor: "#5c9499",
+  //     width: drawerWidth,
+  //     transition: theme.transitions.create('width', {
+  //       easing: theme.transitions.easing.sharp,
+  //       duration: theme.transitions.duration.enteringScreen,
+  //     }),
+  //     boxSizing: "border-box",
+  //     ...(!open && {
+  //       overflowX: "hidden",
+  //       transition: theme.transitions.create("width", {
+  //         easing: theme.transitions.easing.sharp,
+  //         duration: theme.transitions.duration.leavingScreen,
+  //       }),
+  //       width: theme.spacing(7),
+  //       [theme.breakpoints.up("sm")]: {
+  //         width: theme.spacing(9),
+  //       },
+  //     }),
+  //   },
+  // }));
 
   return (
     <ThemeProvider theme={mdTheme}>
