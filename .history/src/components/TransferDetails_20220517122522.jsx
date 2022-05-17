@@ -21,7 +21,7 @@ const TransferDetails = (props) => {
     axiosGet(`users/${picked[0].user}`).then((res) => {
       setuserBalance(res.data.data.amount)
     })
-  },[]) // eslint-disable-line react-hooks/exhaustive-deps
+  },[])
   return (
     <React.Fragment>
       <Box component="div" sx={{ textAlign: "center", mb: -1, mt: 2 }}>

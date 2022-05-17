@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import moment from "moment";
 import Tittle from "./Tittle";
@@ -9,7 +9,6 @@ import { axiosGet } from "../functions/apiCalls";
 
 const TransferDetails = (props) => {
   const { transfer } = useSelector((state) => state.data);
-  const [userBalance, setuserBalance] = useState(null)
 
   const picked = transfer.filter(function (item) {
     return item.uuid === props.data;
@@ -18,10 +17,10 @@ const TransferDetails = (props) => {
   const bankInfo = JSON.parse(picked[0].bank);
 
   useEffect(() => {
-    axiosGet(`users/${picked[0].user}`).then((res) => {
-      setuserBalance(res.data.data.amount)
+    axiosGet(`users${picked[0].user}`).then((res) => {
+      console.log(res)
     })
-  },[]) // eslint-disable-line react-hooks/exhaustive-deps
+  },[])
   return (
     <React.Fragment>
       <Box component="div" sx={{ textAlign: "center", mb: -1, mt: 2 }}>
@@ -42,10 +41,6 @@ const TransferDetails = (props) => {
         >
           <Table size="small" sx={{ width: 450 }}>
             <TableBody>
-            <TableRow>
-                <TableCell variant="head">User Point</TableCell>
-                <TableCell className="__money">{userBalance || "-"}</TableCell>
-              </TableRow>
               <TableRow className="myTable">
                 <TableCell variant="head">Account Name</TableCell>
                 <TableCell>{bankInfo.holder}</TableCell>

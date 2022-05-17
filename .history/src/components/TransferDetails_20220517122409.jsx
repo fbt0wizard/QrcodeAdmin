@@ -21,7 +21,7 @@ const TransferDetails = (props) => {
     axiosGet(`users/${picked[0].user}`).then((res) => {
       setuserBalance(res.data.data.amount)
     })
-  },[]) // eslint-disable-line react-hooks/exhaustive-deps
+  },[])
   return (
     <React.Fragment>
       <Box component="div" sx={{ textAlign: "center", mb: -1, mt: 2 }}>
@@ -42,10 +42,6 @@ const TransferDetails = (props) => {
         >
           <Table size="small" sx={{ width: 450 }}>
             <TableBody>
-            <TableRow>
-                <TableCell variant="head">User Point</TableCell>
-                <TableCell className="__money">{userBalance || "-"}</TableCell>
-              </TableRow>
               <TableRow className="myTable">
                 <TableCell variant="head">Account Name</TableCell>
                 <TableCell>{bankInfo.holder}</TableCell>
