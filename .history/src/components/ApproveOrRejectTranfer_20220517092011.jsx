@@ -21,7 +21,6 @@ const ApproveOrRejectTranfer = (props) => {
         case 200:
           toast.success("Updated successfully!")
           props.setModal(false)
-          props.setRefresh(!props.refresh)
           break;
         default:
           console.log(res)

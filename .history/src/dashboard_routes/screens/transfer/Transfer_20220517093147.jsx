@@ -69,7 +69,7 @@ const Transfer = () => {
           component="div"
           sx={{ width: "95%", overflowX: "scroll", m: "auto" }}
         >
-          <Table size="small" sx={{ minWidth: 935, mb: 5 }}>
+          <Table size="large" sx={{ minWidth: 935, mb: 5 }}>
             <TableHead>
               <TableRow>
                 <TableCell>#</TableCell>
@@ -109,8 +109,8 @@ const Transfer = () => {
                       sx={{
                         mr: 2,
                         textTransform: "capitalize",
-                        mt: 1,
-                        mb: 1,
+                        mt: 2,
+                        mb: 2,
                         bgcolor: "#5c9499",
                         "&:hover": {
                           bgcolor: "#387075",

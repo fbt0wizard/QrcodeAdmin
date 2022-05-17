@@ -25,11 +25,9 @@ export default function CreateProduct({ picked }) {
       desc: data.get("desc"),
       // images: data.get('images')
     };
-    // console.log(prep)
     setSubmitting(true);
     submitBtn.current.disabled = true;
     const res = await post(prep, "products");
-    // console.log(res)
     if (res.message === "Data recorded succefully") {
       dispatch(
         setAlert({ alert: "Product Created Succefully", type: "success" })

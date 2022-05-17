@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { Box, Typography, Button, Divider } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { AlertSuccess } from "./Alerts";
-import { post, put } from "../functions/apiCalls";
+import { apnData, post, put } from "../functions/apiCalls";
 import { useSelector, useDispatch } from "react-redux";
 import { clearAlert, setAlert } from "../redux_toolkit/slices/alertSlice";
 import { updateProducts } from "../redux_toolkit/slices/dataSlice";
@@ -23,7 +23,7 @@ export default function CreateProduct({ picked }) {
       name: data.get("name"),
       price: data.get("price"),
       desc: data.get("desc"),
-      // images: data.get('images')
+      images: data.get('images')
     };
     // console.log(prep)
     setSubmitting(true);

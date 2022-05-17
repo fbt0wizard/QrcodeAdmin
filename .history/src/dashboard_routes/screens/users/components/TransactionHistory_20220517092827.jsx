@@ -92,7 +92,7 @@ const TransactionHistory = (props) => {
               <TableHead>
                 <TableRow>
                   <TableCell>#</TableCell>
-                  <TableCell>Type</TableCell>
+                  <TableCell>Transaction</TableCell>
                   <TableCell>Desc</TableCell>
                   <TableCell>Point</TableCell>
                   <TableCell>Date</TableCell>

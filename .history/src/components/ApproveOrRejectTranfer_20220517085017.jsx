@@ -21,7 +21,6 @@ const ApproveOrRejectTranfer = (props) => {
         case 200:
           toast.success("Updated successfully!")
           props.setModal(false)
-          props.setRefresh(!props.refresh)
           break;
         default:
           console.log(res)
@@ -35,7 +34,7 @@ const ApproveOrRejectTranfer = (props) => {
       <Tooltip title="Approve" placement="top" arrow>
         <Fab
           disabled={submitting}
-          onClick={() => handleAction(1)}
+          onClick={() => handleAction('1')}
           aria-label="more"
           size="large"
           sx={{
@@ -54,7 +53,7 @@ const ApproveOrRejectTranfer = (props) => {
         <Tooltip title="Reject" placement="top" arrow>
         <Fab
           disabled={submitting}
-          onClick={() => handleAction(2)}
+          onClick={() => handleAction("2")}
           aria-label="more"
           size="large"
           sx={{

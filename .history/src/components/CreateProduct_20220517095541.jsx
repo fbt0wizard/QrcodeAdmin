@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { Box, Typography, Button, Divider } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { AlertSuccess } from "./Alerts";
-import { post, put } from "../functions/apiCalls";
+import { apnData, post, put } from "../functions/apiCalls";
 import { useSelector, useDispatch } from "react-redux";
 import { clearAlert, setAlert } from "../redux_toolkit/slices/alertSlice";
 import { updateProducts } from "../redux_toolkit/slices/dataSlice";
@@ -19,17 +19,18 @@ export default function CreateProduct({ picked }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    const obj = data.get('images')
     const prep = {
       name: data.get("name"),
       price: data.get("price"),
       desc: data.get("desc"),
-      // images: data.get('images')
+      images: obj
     };
-    // console.log(prep)
+    console.log(prep)
     setSubmitting(true);
     submitBtn.current.disabled = true;
     const res = await post(prep, "products");
-    // console.log(res)
+    console.log(res)
     if (res.message === "Data recorded succefully") {
       dispatch(
         setAlert({ alert: "Product Created Succefully", type: "success" })
@@ -130,15 +131,15 @@ export default function CreateProduct({ picked }) {
         >
           Upload Product Image
         </Typography>
-        <ImageUpload />
-        {/* <TextField
+        {/* <ImageUpload /> */}
+        <TextField
         name="images"
           type="file"
           variant="outlined"
           sx={{
             mb: 2,
           }}
-        /> */}
+        />
 
         <Divider light />
         <Button

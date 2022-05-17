@@ -40,7 +40,7 @@ class App extends React.Component {
   }
 
   render() {
-      // const p = {folder: "items"}
+      const p = {folder: "images"}
     const { previewVisible, previewImage, fileList, previewTitle } = this.state;
     const uploadButton = (
       <div>
@@ -51,8 +51,8 @@ class App extends React.Component {
     return (
       <>
         <Upload
-          action="https://qrcode.gohealthy.ng/products"
-          // data={p}
+          action="https://qrcode.gohealthy.ng/upload"
+          data={p}
           headers= {setHeader(true)}
           listType="picture-card"
           fileList={fileList}
