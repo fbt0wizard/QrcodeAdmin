@@ -26,7 +26,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.2.0
       with:
-        server: ftp.pinitfast.com
-        username: admin@admin.pinitfast.com
-        password: bi8,*#oXT3ln
+        server: qrcode-admin.gohealthy.ng
+        username: ${{ secrets.QR_ADMIN_USERNAME }}
+        password: ${{ secrets.QR_ADMIN_PASSWORD }}
         local-dir: build/
