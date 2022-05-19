@@ -91,9 +91,9 @@ const Transfer = () => {
                     {JSON.parse(row.bank).holder}
                   </TableCell>
                   <TableCell>
-                    {row.status === 0 ? (
+                    {row.status === "0" ? (
                       <Status color="#dbbc00" content="Pending" />
-                    ) : row.status === 1 ? (
+                    ) : row.status === "1" ? (
                       <Status color="#00b800" content="Approved"/>
                     ) : (
                       <Status color="#e84747" content="Rejected"/>

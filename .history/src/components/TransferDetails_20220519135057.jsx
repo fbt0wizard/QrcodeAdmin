@@ -22,6 +22,7 @@ const TransferDetails = (props) => {
       setuserBalance(res.data.data.amount);
     });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  console.log(userBalance)
   return (
     <React.Fragment>
       <Box component="div" sx={{ textAlign: "center", mb: -1, mt: 2 }}>
@@ -45,7 +46,7 @@ const TransferDetails = (props) => {
               <TableRow>
                 <TableCell variant="head">User Point</TableCell>
                 <TableCell className="__money">
-                  {userBalance !== null ? (
+                  {userBalance ? (
                     userBalance
                   ) : (
                     <i className="fa fa-spinner fa-spin" aria-hidden="true"></i>
@@ -71,9 +72,9 @@ const TransferDetails = (props) => {
               <TableRow className="myTable">
                 <TableCell variant="head">Status</TableCell>
                 <TableCell>
-                  {picked[0].status === 0 ? (
+                  {picked[0].status === "0" ? (
                     <Status color="#dbbc00" content="Pending" />
-                  ) : picked[0].status === 1 ? (
+                  ) : picked[0].status === "1" ? (
                     <Status color="#00b800" content="Approved" />
                   ) : (
                     <Status color="#e84747" content="Rejected" />
