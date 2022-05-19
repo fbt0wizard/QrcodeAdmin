@@ -36,7 +36,9 @@ export default function AwardPoint({ picked }) {
     };
     setSubmitting(true);
     submitBtn.current.disabled = true;
+    console.log(prep)
     const res = await post(prep, "products/generate/qr");
+    console.log(res)
     if (res.message === "Data recorded succefully") {
       dispatch(
         setAlert({ alert: "Point Awarded Succefully", type: "success" })
@@ -46,7 +48,7 @@ export default function AwardPoint({ picked }) {
         dispatch(clearAlert());
       }, 6000);
     } else {
-      console.log(res);
+      // console.log(res);
     }
     setSubmitting(false);
     submitBtn.current.disabled = false;

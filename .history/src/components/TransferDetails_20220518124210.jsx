@@ -22,7 +22,6 @@ const TransferDetails = (props) => {
       setuserBalance(res.data.data.amount);
     });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-  console.log(userBalance)
   return (
     <React.Fragment>
       <Box component="div" sx={{ textAlign: "center", mb: -1, mt: 2 }}>

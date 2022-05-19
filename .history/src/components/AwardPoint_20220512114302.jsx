@@ -15,6 +15,7 @@ import { post } from "../functions/apiCalls";
 
 export default function AwardPoint({ picked }) {
   const { alert, alertType } = useSelector((state) => state.alert);
+  const { api } = useSelector((state) => state.userData);
   const { swithScreen } = useSelector((state) => state.others);
   const dispatch = useDispatch();
   const [submitting, setSubmitting] = useState(false);
@@ -36,7 +37,7 @@ export default function AwardPoint({ picked }) {
     };
     setSubmitting(true);
     submitBtn.current.disabled = true;
-    const res = await post(prep, "products/generate/qr");
+    const res = await post(prep, "products/generate/qr", api);
     if (res.message === "Data recorded succefully") {
       dispatch(
         setAlert({ alert: "Point Awarded Succefully", type: "success" })
