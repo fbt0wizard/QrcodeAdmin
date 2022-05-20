@@ -93,24 +93,18 @@ const ApproveOrRejectTranfer = (props) => {
         open={open}
         TransitionComponent={Transition}
         keepMounted
-        onClose={() => {
-        setOpen(false)
-        setAction(null)
-        }}
+        onClose={() => setOpen(false)}
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle>{"Are you sure about this?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            You are about to {action === 1? "APPROVE" : "REJECT"} this transaction!!!
+            This decision can not be reversed.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => {
-          setAction(null)
-          setOpen(false)
-          }}>Cancel</Button>
-          <Button onClick={() => handleAction(action)}>Confirm</Button>
+          <Button onClick={() => setOpen(false)}>Cancel</Button>
+          {/* <Button onClick={handleClose}>Confirm</Button> */}
         </DialogActions>
       </Dialog>
     </Box>
@@ -125,3 +119,20 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
+//  function AlertDialogSlide() {
+  
+
+//   const handleClickOpen = () => {
+//     setOpen(true);
+//   };
+
+//   const handleClose = () => {
+//     setOpen(false);
+//   };
+
+//   return (
+//     <div>
+
+//     </div>
+//   );
+// }

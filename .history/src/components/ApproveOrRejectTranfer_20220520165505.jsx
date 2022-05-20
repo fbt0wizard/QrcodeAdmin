@@ -102,7 +102,7 @@ const ApproveOrRejectTranfer = (props) => {
         <DialogTitle>{"Are you sure about this?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            You are about to {action === 1? "APPROVE" : "REJECT"} this transaction!!!
+            This decision can not be reversed.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -125,3 +125,20 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
+//  function AlertDialogSlide() {
+  
+
+//   const handleClickOpen = () => {
+//     setOpen(true);
+//   };
+
+//   const handleClose = () => {
+//     setOpen(false);
+//   };
+
+//   return (
+//     <div>
+
+//     </div>
+//   );
+// }

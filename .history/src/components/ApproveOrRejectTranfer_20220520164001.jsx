@@ -18,7 +18,6 @@ import Slide from '@mui/material/Slide';
 const ApproveOrRejectTranfer = (props) => {
   const [submitting, setSubmitting] = useState(false)
   const [open, setOpen] = React.useState(false);
-  const [action, setAction] = React.useState(null);
 
   const handleAction = (choice) => {
     setSubmitting(true)
@@ -47,10 +46,7 @@ const ApproveOrRejectTranfer = (props) => {
       <Tooltip title="Approve" placement="top" arrow>
         <Fab
           disabled={submitting}
-          onClick={() => {
-          setOpen(true)
-          setAction(1)
-          }}
+          onClick={() => handleAction(1)}
           aria-label="more"
           size="large"
           sx={{
@@ -69,10 +65,7 @@ const ApproveOrRejectTranfer = (props) => {
         <Tooltip title="Reject" placement="top" arrow>
         <Fab
           disabled={submitting}
-          onClick={() => {
-          setOpen(true)
-          setAction(2)
-          }}
+          // onClick={() => AlertDialogSlide()}
           aria-label="more"
           size="large"
           sx={{
@@ -93,24 +86,19 @@ const ApproveOrRejectTranfer = (props) => {
         open={open}
         TransitionComponent={Transition}
         keepMounted
-        onClose={() => {
-        setOpen(false)
-        setAction(null)
-        }}
+        onClose={() => setOpen(false)}
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle>{"Are you sure about this?"}</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
-            You are about to {action === 1? "APPROVE" : "REJECT"} this transaction!!!
-          </DialogContentText>
+          {/* <DialogContentText id="alert-dialog-slide-description">
+            Let Google help apps determine location. This means sending anonymous
+            location data to Google, even when no apps are running.
+          </DialogContentText> */}
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => {
-          setAction(null)
-          setOpen(false)
-          }}>Cancel</Button>
-          <Button onClick={() => handleAction(action)}>Confirm</Button>
+          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleClose}>Confirm</Button>
         </DialogActions>
       </Dialog>
     </Box>
@@ -125,3 +113,20 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
+ function AlertDialogSlide() {
+  
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <div>
+
+    </div>
+  );
+}
