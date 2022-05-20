@@ -44,11 +44,11 @@ const ManageUser = () => {
           item
           xs={12}
           sx={{
+            width: "max-content",
             borderRadius: 2,
             height: "max-content",
             width: "30%",
-            minWidth: "max-content",
-            maxWidth: "max-content",
+            minWidth: "max-content"
           }}
         >
           {/* user badge */}

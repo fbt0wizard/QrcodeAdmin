@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Select from 'react-select'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Toolbar,
   Button,
@@ -9,17 +9,18 @@ import {
   TextField,
 } from "@mui/material";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
-import { setloader, setPage, setStart } from "../../../../redux_toolkit/slices/paginationSlice";
+import { setloader, setStart } from "../redux_toolkit/slices/paginationSlice";
+import { updateProducts } from "../redux_toolkit/slices/dataSlice";
 
-const TransferFilterNav = (props) => {
+const ProductFilterNav = (props) => {
+  const { refetch } = useSelector((state) => state.data);
 
   const dispatch = useDispatch();
 
   const options = [
     { value: "", label: 'All' },
-    { value: 1, label: 'Approved' },
+    { value: 1, label: 'Active' },
     { value: 0, label: 'Pending' },
-    { value: 2, label: 'Rejected' }
   ]
 
   return (
@@ -29,9 +30,8 @@ const TransferFilterNav = (props) => {
             <Select isSearchable={false} options={options} onChange={(e) => props.setStatus(e.value)}/>
           </FormControl>
           <TextField
-          onChange={(e) => props.setAmount(e.target.value)}
-          type="number"
-          label="Amount"
+          onChange={(e) => props.setName(e.target.value)}
+          label="Name"
           id="outlined-size-small"
           size="small"
           name="search"
@@ -42,10 +42,10 @@ const TransferFilterNav = (props) => {
         />
           <Button 
           onClick={() => {
-            dispatch(setStart({load: 0, type: "transfer"}));
-            dispatch(setPage({load: 1, type: "transfer"}));
-            dispatch(setloader({load: true, type: "transfer"}));
-            props.setRefresh(!props.refresh)
+            dispatch(setStart({load: 0, type: "product"}));
+            dispatch(setloader({load: true, type: "product"}));
+            dispatch(updateProducts(!refetch));
+            
           }}
           variant="contained" 
           startIcon={<FilterAltIcon />}
@@ -63,4 +63,5 @@ const TransferFilterNav = (props) => {
   );
 };
 
-export default TransferFilterNav;
+
+export default ProductFilterNav;

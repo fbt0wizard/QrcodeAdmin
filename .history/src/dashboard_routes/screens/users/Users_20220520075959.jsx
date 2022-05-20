@@ -28,7 +28,7 @@ export default function Users() {
   const { userPag } = useSelector((state) => state.pagination);
 
   const [name, setName] = useState("");
-  const [status, setStatus] = useState(1);
+  const [status, setStatus] = useState("");
   const [noRecord, setNoRecord] = useState(false);
   const [refresh, setRefresh] = useState(false);
 
@@ -49,7 +49,7 @@ export default function Users() {
       type: "",
     };
 
-    axiosGet("users", payload).then((res) => {
+    axiosGet("users").then((res) => {
       switch (res.data.status) {
         case 200:
           dispatch(setTotalPage({load: Math.ceil(res.data.count / 12), type: "user"}))

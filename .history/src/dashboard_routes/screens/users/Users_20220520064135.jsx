@@ -46,7 +46,7 @@ export default function Users() {
       limit: `${userPag.start},${userPag.end}`,
       name: name,
       status: status,
-      type: "",
+      type: "user",
     };
 
     axiosGet("users", payload).then((res) => {
@@ -196,7 +196,7 @@ export default function Users() {
           )}
         </Box>
       </Box>
-      {userPag.totalPage !== 1 && <PaginationComponent pagnitionData={userPag} type="user"/>}
+      <PaginationComponent pagnitionData={userPag} type="user"/>
     </React.Fragment>
   );
 }

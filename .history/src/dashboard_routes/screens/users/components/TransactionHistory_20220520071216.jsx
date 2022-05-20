@@ -71,10 +71,9 @@ const TransactionHistory = (props) => {
 
   return (
     <React.Fragment>
-      
-      <Box sx={{ width: "100%" }}>
       <MiniNavScreen setPage={props.setPage} />
       <Tittle>Transaction Point History</Tittle>
+      <Box sx={{ width: "100%" }}>
         <Box
           component="div"
           maxWidth="lg"
@@ -90,15 +89,15 @@ const TransactionHistory = (props) => {
             component="div"
             sx={{ width: "95%", overflowX: "scroll", m: "auto" }}
           >
-            <Table size="small" sx={{ minWidth: 900, mb: 5 }}>
+            <Table size="small" sx={{ minWidth: '1800px', mb: 5 }}>
               <TableHead>
                 <TableRow>
                   <TableCell>#</TableCell>
                   <TableCell>Type</TableCell>
-                  <TableCell>Desc</TableCell>
+                  {/* <TableCell>Desc</TableCell>
                   <TableCell>Product</TableCell>
                   <TableCell>Point</TableCell>
-                  <TableCell>Date</TableCell>
+                  <TableCell>Date</TableCell> */}
                   <TableCell>Status</TableCell>
                   <TableCell>Balance</TableCell>
                 </TableRow>
@@ -111,14 +110,14 @@ const TransactionHistory = (props) => {
                       <TableCell className={row.transaction_type}>
                         {row.transaction_type || "-"}
                       </TableCell>
-                      <TableCell>{row.desc || "-"}</TableCell>
-                      <TableCell>{row.product !== null && `${row.product.name}`}</TableCell>
+                      {/* <TableCell>{row.desc || "-"}</TableCell>
+                      <TableCell>{row.product !== null && row.product.name}</TableCell>
                       <TableCell className="__money">
                         {row.point || "-"}
                       </TableCell>
                       <TableCell>
                         {moment(row.updated_at).format("LLL")}
-                      </TableCell>
+                      </TableCell> */}
                       <TableCell>
                         {row.status === 1 ? (
                           <Status color="#29af29" content="success" />

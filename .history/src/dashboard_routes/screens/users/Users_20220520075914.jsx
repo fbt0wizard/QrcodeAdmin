@@ -28,7 +28,7 @@ export default function Users() {
   const { userPag } = useSelector((state) => state.pagination);
 
   const [name, setName] = useState("");
-  const [status, setStatus] = useState(1);
+  const [status, setStatus] = useState("");
   const [noRecord, setNoRecord] = useState(false);
   const [refresh, setRefresh] = useState(false);
 

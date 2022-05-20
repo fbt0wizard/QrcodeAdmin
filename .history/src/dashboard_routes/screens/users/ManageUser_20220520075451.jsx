@@ -44,6 +44,7 @@ const ManageUser = () => {
           item
           xs={12}
           sx={{
+            width: "max-content",
             borderRadius: 2,
             height: "max-content",
             width: "30%",

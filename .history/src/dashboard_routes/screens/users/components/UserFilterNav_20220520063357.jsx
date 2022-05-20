@@ -9,17 +9,15 @@ import {
   TextField,
 } from "@mui/material";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
-import { setloader, setPage, setStart } from "../../../../redux_toolkit/slices/paginationSlice";
+import { setloader, setStart } from "../../../../redux_toolkit/slices/paginationSlice";
 
-const TransferFilterNav = (props) => {
+const UserFilterNav = (props) => {
 
   const dispatch = useDispatch();
 
   const options = [
-    { value: "", label: 'All' },
-    { value: 1, label: 'Approved' },
-    { value: 0, label: 'Pending' },
-    { value: 2, label: 'Rejected' }
+    { value: 1, label: 'Active' },
+    { value: 0, label: 'Inactive' },
   ]
 
   return (
@@ -29,9 +27,8 @@ const TransferFilterNav = (props) => {
             <Select isSearchable={false} options={options} onChange={(e) => props.setStatus(e.value)}/>
           </FormControl>
           <TextField
-          onChange={(e) => props.setAmount(e.target.value)}
-          type="number"
-          label="Amount"
+          onChange={(e) => props.setName(e.target.value)}
+          label="Name"
           id="outlined-size-small"
           size="small"
           name="search"
@@ -42,9 +39,8 @@ const TransferFilterNav = (props) => {
         />
           <Button 
           onClick={() => {
-            dispatch(setStart({load: 0, type: "transfer"}));
-            dispatch(setPage({load: 1, type: "transfer"}));
-            dispatch(setloader({load: true, type: "transfer"}));
+            dispatch(setStart({load: 0, type: "user"}));
+            dispatch(setloader({load: true, type: "user"}));
             props.setRefresh(!props.refresh)
           }}
           variant="contained" 
@@ -63,4 +59,5 @@ const TransferFilterNav = (props) => {
   );
 };
 
-export default TransferFilterNav;
+
+export default UserFilterNav;

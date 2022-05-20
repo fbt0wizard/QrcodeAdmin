@@ -72,7 +72,7 @@ const TransactionHistory = (props) => {
   return (
     <React.Fragment>
       
-      <Box sx={{ width: "100%" }}>
+      <Box sx={{ width: "50%" }}>
       <MiniNavScreen setPage={props.setPage} />
       <Tittle>Transaction Point History</Tittle>
         <Box

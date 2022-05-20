@@ -71,10 +71,9 @@ const TransactionHistory = (props) => {
 
   return (
     <React.Fragment>
-      
-      <Box sx={{ width: "100%" }}>
       <MiniNavScreen setPage={props.setPage} />
       <Tittle>Transaction Point History</Tittle>
+      <Box sx={{ width: "98%" }}>
         <Box
           component="div"
           maxWidth="lg"
@@ -84,13 +83,16 @@ const TransactionHistory = (props) => {
             boxShadow: 1,
             borderRadius: 2,
             bgcolor: "#fff",
+            width: "95%",
+            overflowX: "scroll",
+            m: "auto"
           }}
         >
           <Box
             component="div"
-            sx={{ width: "95%", overflowX: "scroll", m: "auto" }}
+            sx={{ width: "95%", minWidth: 700 }}
           >
-            <Table size="small" sx={{ minWidth: 900, mb: 5 }}>
+            <Table size="small" sx={{  mb: 5 }}>
               <TableHead>
                 <TableRow>
                   <TableCell>#</TableCell>
@@ -112,7 +114,7 @@ const TransactionHistory = (props) => {
                         {row.transaction_type || "-"}
                       </TableCell>
                       <TableCell>{row.desc || "-"}</TableCell>
-                      <TableCell>{row.product !== null && `${row.product.name}`}</TableCell>
+                      <TableCell>{row.product !== null && row.product.name}</TableCell>
                       <TableCell className="__money">
                         {row.point || "-"}
                       </TableCell>

@@ -36,7 +36,6 @@ const ManageUser = () => {
         sx={{
           p: 1,
           display: "flex",
-          width: "100%",
           // justifyContent: "space-between",
         }}
       >
@@ -44,11 +43,9 @@ const ManageUser = () => {
           item
           xs={12}
           sx={{
+            width: "max-content",
             borderRadius: 2,
             height: "max-content",
-            width: "30%",
-            minWidth: "max-content",
-            maxWidth: "max-content",
           }}
         >
           {/* user badge */}
@@ -58,7 +55,7 @@ const ManageUser = () => {
           item
           xs={12}
           sx={{
-            width: "70%",
+            // width: "100%",
             borderRadius: 2,
             height: "max-content",
           }}
