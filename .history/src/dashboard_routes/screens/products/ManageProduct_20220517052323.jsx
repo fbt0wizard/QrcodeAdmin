@@ -24,7 +24,7 @@ const ManageProduct = () => {
         sx={{
           p: 1,
           display: "flex",
-          // justifyContent: "space-between",
+          justifyContent: "space-between",
         }}
       >
       <Grid
@@ -43,7 +43,7 @@ const ManageProduct = () => {
           item
           xs={12}
           sx={{
-            width: "100%",
+            width: "max-content",
             height: "max-content",
           }}
         >

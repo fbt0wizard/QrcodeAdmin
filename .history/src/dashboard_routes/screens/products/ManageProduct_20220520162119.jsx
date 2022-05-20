@@ -43,7 +43,7 @@ const ManageProduct = () => {
           item
           xs={12}
           sx={{
-            width: "100%",
+            width: "max-content",
             height: "max-content",
           }}
         >
