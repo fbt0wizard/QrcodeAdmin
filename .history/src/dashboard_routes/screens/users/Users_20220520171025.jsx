@@ -132,7 +132,7 @@ export default function Users() {
                   <TableCell>{row.phone}</TableCell>
                   <TableCell className="__money">{row.amount}</TableCell>
                   <TableCell>
-                      <Status color={row.type === "user" ? '#f7c803' : "#07a8e7"} content={row.type}/>
+                      <Status  color="#00b800" content="Approved"/>
                   </TableCell>
                   <TableCell>{moment(row.created_at).format("LLL")}</TableCell>
                   <TableCell>

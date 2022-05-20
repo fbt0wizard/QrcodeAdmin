@@ -11,8 +11,8 @@ import {
   TableBody,
   Box,
 } from "@mui/material";
+import { Chip } from "@mui/material";
 import moment from "moment";
-import Status from "./Status"
 
 const UserBadge = ({ pickedUser }) => {
   return (
@@ -62,13 +62,53 @@ const UserBadge = ({ pickedUser }) => {
               <TableRow>
                 <TableCell variant="head">Status</TableCell>
                 <TableCell>
-                <Status color={pickedUser[0].status === 1 ? "#08c008" : "#ff0000"} content={pickedUser[0].status === 1 ? "Active" : "Inactive"}/>
+                  {pickedUser[0].status === 1 ? (
+                    <Chip
+                      label="Active"
+                      sx={{
+                        width: "75px",
+                        bgcolor: "#08c008",
+                        color: "#fff",
+                        fontWeight: 600,
+                      }}
+                    />
+                  ) : (
+                    <Chip
+                      label="Inactive"
+                      sx={{
+                        width: "75px",
+                        bgcolor: "#ff0000",
+                        color: "#fff",
+                        fontWeight: 600,
+                      }}
+                    />
+                  )}
                 </TableCell>
               </TableRow>
               <TableRow>
                 <TableCell variant="head">Access</TableCell>
                 <TableCell>
-                <Status color={pickedUser[0].type === "user" ? '#f7c803' : "#07a8e7"} content={pickedUser[0].type}/>
+                  {pickedUser[0].type === "admin" ? (
+                    <Chip
+                      label="Admin"
+                      sx={{
+                        width: "75px",
+                        bgcolor: "green",
+                        color: "#fff",
+                        fontWeight: 600,
+                      }}
+                    />
+                  ) : (
+                    <Chip
+                      label="User"
+                      sx={{
+                        width: "75px",
+                        bgcolor: "darkgoldenrod",
+                        color: "#fff",
+                        fontWeight: 600,
+                      }}
+                    />
+                  )}
                 </TableCell>
               </TableRow>
               <TableRow>

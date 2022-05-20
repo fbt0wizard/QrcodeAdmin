@@ -20,6 +20,7 @@ import UserFilterNav from "../users/components/UserFilterNav";
 import { setloader, setTotalPage } from "../../../redux_toolkit/slices/paginationSlice"
 import PaginationComponent from "../../../components/PaginationComponent";
 import Status from "../../../components/Status";
+import { RowingOutlined } from "@mui/icons-material";
 
 export default function Users() {
   const dispatch = useDispatch();
@@ -132,7 +133,7 @@ export default function Users() {
                   <TableCell>{row.phone}</TableCell>
                   <TableCell className="__money">{row.amount}</TableCell>
                   <TableCell>
-                      <Status color={row.type === "user" ? '#f7c803' : "#07a8e7"} content={row.type}/>
+                      <Status  color={row.type === "user" ? '#f7c803' : "#07a8e7"} content={row.type}/>
                   </TableCell>
                   <TableCell>{moment(row.created_at).format("LLL")}</TableCell>
                   <TableCell>
