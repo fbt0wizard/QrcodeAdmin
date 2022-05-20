@@ -91,7 +91,7 @@ export default function Users() {
           component="div"
           sx={{ width: "95%", overflowX: "scroll", m: "auto" }}
         >
-          <Table size="small" sx={{ minWidth: 1050, bgcolor: "#fff", mb: 5 }}>
+          <Table size="small" sx={{ minWidth: 1000, bgcolor: "#fff", mb: 5 }}>
             <TableHead>
               <TableRow>
                 <TableCell>#</TableCell>
