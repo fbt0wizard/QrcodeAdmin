@@ -174,7 +174,7 @@ const Transfer = () => {
               ))}
             </TableBody>
           </Table>
-          {pending && !noRecord && (
+          {pending && (
             <div style={{ textAlign: "center" }}>
               <i
                 style={{ fontSize: 40, margin: 18 }}
@@ -183,7 +183,7 @@ const Transfer = () => {
               ></i>
             </div>
           )}
-            {noRecord && (
+                    {noRecord && (
             <div style={{ textAlign: "center" }}>
               <Typography
                 variant="h6"

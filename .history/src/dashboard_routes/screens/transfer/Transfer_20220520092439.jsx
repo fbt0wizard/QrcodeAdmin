@@ -183,7 +183,7 @@ const Transfer = () => {
               ></i>
             </div>
           )}
-            {noRecord && (
+                    {noRecord && (
             <div style={{ textAlign: "center" }}>
               <Typography
                 variant="h6"

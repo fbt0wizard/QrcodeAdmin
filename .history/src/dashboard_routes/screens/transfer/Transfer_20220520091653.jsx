@@ -55,7 +55,6 @@ const Transfer = () => {
       type: "",
     };
     axiosGet("transfers", payload).then((res) => {
-  
       switch (res.status) {
         case 200:
           dispatch(setTransfer(res.data.data));
@@ -66,7 +65,7 @@ const Transfer = () => {
             })
           );
           break;
-          case 606:
+          case 404:
             setNoRecord(true);
             dispatch(setTotalPage({load: 1, type: "transfer"}))
             break;
@@ -174,7 +173,7 @@ const Transfer = () => {
               ))}
             </TableBody>
           </Table>
-          {pending && !noRecord && (
+          {pending && (
             <div style={{ textAlign: "center" }}>
               <i
                 style={{ fontSize: 40, margin: 18 }}
@@ -183,7 +182,7 @@ const Transfer = () => {
               ></i>
             </div>
           )}
-            {noRecord && (
+                    {noRecord && (
             <div style={{ textAlign: "center" }}>
               <Typography
                 variant="h6"

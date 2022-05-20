@@ -183,7 +183,7 @@ const Transfer = () => {
               ></i>
             </div>
           )}
-            {noRecord && (
+                    {/* {noRecord && (
             <div style={{ textAlign: "center" }}>
               <Typography
                 variant="h6"
@@ -193,7 +193,7 @@ const Transfer = () => {
                 No Record Found
               </Typography>
             </div>
-          )}
+          )} */}
         </Box>
       </Box>
       <PaginationComponent pagnitionData={transferPag} type="transfer" />
