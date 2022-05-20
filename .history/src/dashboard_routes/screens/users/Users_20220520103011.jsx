@@ -35,7 +35,6 @@ export default function Users() {
   let count = userPag.start + 1;
 
   useEffect(() => {
-    document.title = "Go Healthy || Users"
     setNoRecord(false);
 
     if(userPag.showLoader) {
@@ -48,9 +47,8 @@ export default function Users() {
       name: name,
       type: "",
     };
-    if(status !== "") {
-      payload.status = status
-    }
+
+    status !== "" && payload.status = status
 
     axiosGet("users", payload).then((res) => {
       switch (res.data.status) {

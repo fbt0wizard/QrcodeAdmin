@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@mui/material/styles';
@@ -11,10 +11,6 @@ import Tittle from "../../../components/Tittle"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
-  useEffect(() => {
-    document.title = "Go Healthy || Settings"
-  }, [])
 
   return (
     <div

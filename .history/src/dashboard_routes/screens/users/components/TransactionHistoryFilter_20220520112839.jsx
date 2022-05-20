@@ -11,14 +11,14 @@ import {
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import { setloader, setPage, setStart } from "../../../../redux_toolkit/slices/paginationSlice";
 
-const UserFilterNav = (props) => {
+const TransactionHistoryFilter = (props) => {
 
   const dispatch = useDispatch();
 
   const options = [
     { value: "", label: 'All' },
-    { value: 1, label: 'Active' },
-    { value: 0, label: 'Inactive' },
+    { value: 1, label: 'Success' },
+    { value: 0, label: 'Failed' },
   ]
 
   return (
@@ -26,6 +26,7 @@ const UserFilterNav = (props) => {
         <Toolbar>
           <FormControl sx={{ m: 1, minWidth: 120, display: "flex" }} size="small">
             <Select isSearchable={false} options={options} onChange={(e) => props.setStatus(e.value)}/>
+           
           </FormControl>
           <TextField
           onChange={(e) => props.setName(e.target.value)}
@@ -38,6 +39,7 @@ const UserFilterNav = (props) => {
             bgcolor: "#fff"
           }}
         />
+         <Select isSearchable={false} options={options} onChange={(e) => props.setStatus(e.value)}/>
           <Button 
           onClick={() => {
             dispatch(setStart({load: 0, type: "user"}));
@@ -61,5 +63,4 @@ const UserFilterNav = (props) => {
   );
 };
 
-
-export default UserFilterNav;
+  export default TransactionHistoryFilter;

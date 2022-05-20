@@ -27,7 +27,7 @@ const TransferDetails = (props) => {
   return (
     <React.Fragment>
       <Box component="div" sx={{ textAlign: "center", mb: -1, mt: 2 }}>
-        <Tittle>Transfer &amp; User Information</Tittle>
+        <Tittle>Transfer Information</Tittle>
       </Box>
       <Box
         component="div"
@@ -45,14 +45,8 @@ const TransferDetails = (props) => {
           <Table size="small" sx={{ width: 450 }}>
             <TableBody>
             <TableRow>
-                <TableCell variant="head">User</TableCell>
-                <TableCell>
-                {userInfo !== null ? (
-                    userInfo.name
-                  ) : (
-                    <i className="fa fa-spinner fa-spin" aria-hidden="true"></i>
-                  )}
-                </TableCell>
+                <TableCell variant="head">User Name</TableCell>
+                <TableCell>{bankInfo.bank_name}</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell variant="head">User Point</TableCell>               

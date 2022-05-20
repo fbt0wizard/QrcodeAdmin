@@ -35,7 +35,6 @@ export default function Users() {
   let count = userPag.start + 1;
 
   useEffect(() => {
-    document.title = "Go Healthy || Users"
     setNoRecord(false);
 
     if(userPag.showLoader) {

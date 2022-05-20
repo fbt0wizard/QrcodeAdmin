@@ -28,14 +28,6 @@ const TransactionHistory = (props) => {
     page: 1,
   });
   const [status, setStatus] = useState("");
-  const [desc, setDesc] = useState("");
-  const [type, setType] = useState("");
-  const [refresh, setRefresh] = useState(false);
-
-  const reset = () => {
-    setPaginate({...paginate, start: 0, totalPage: 1, page: 1})
-    setRefresh(!refresh)
-  }
 
   let count = paginate.start + 1;
 
@@ -44,8 +36,6 @@ const TransactionHistory = (props) => {
       limit: `${paginate.start},${paginate.end}`,
       status: status,
       user: props.user.uuid,
-      transaction_type: type,
-      desc: desc
     };
     setData([]);
     setNoRecord(false);
@@ -67,7 +57,7 @@ const TransactionHistory = (props) => {
           console.log(res.data.status);
       }
     });
-  }, [paginate.start,refresh]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [paginate.start]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const pending = Object.keys(data).length === 0;
 
@@ -87,7 +77,7 @@ const TransactionHistory = (props) => {
       <Box sx={{ width: "100%" }}>
       <MiniNavScreen setPage={props.setPage} />
       <Tittle>Transaction Point History</Tittle>
-        <TransactionHistoryFilter setStatus={setStatus} setDesc={setDesc} setType={setType} reset={reset}/>
+        <TransactionHistoryFilter setStatus={setStatus}/>
         <Box
           component="div"
           maxWidth="lg"

@@ -11,14 +11,19 @@ import {
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import { setloader, setPage, setStart } from "../../../../redux_toolkit/slices/paginationSlice";
 
-const UserFilterNav = (props) => {
+const TransactionHistoryFilter = (props) => {
 
   const dispatch = useDispatch();
 
   const options = [
     { value: "", label: 'All' },
-    { value: 1, label: 'Active' },
-    { value: 0, label: 'Inactive' },
+    { value: 1, label: 'Success' },
+    { value: 0, label: 'Failed' },
+  ]
+  const tr = [
+    { value: "", label: 'All' },
+    { value: "DR", label: "DR" },
+    { value: "CR", label: "CR" },
   ]
 
   return (
@@ -26,18 +31,14 @@ const UserFilterNav = (props) => {
         <Toolbar>
           <FormControl sx={{ m: 1, minWidth: 120, display: "flex" }} size="small">
             <Select isSearchable={false} options={options} onChange={(e) => props.setStatus(e.value)}/>
+           
           </FormControl>
-          <TextField
-          onChange={(e) => props.setName(e.target.value)}
-          label="Name"
-          id="outlined-size-small"
-          size="small"
-          name="search"
-          sx={{
-            mr: 2,
-            bgcolor: "#fff"
-          }}
-        />
+          <FormControl sx={{ m: 1, minWidth: 120, display: "flex" }} size="small">
+         <Select isSearchable={false} options={tr} onChange={(e) => props.setStatus(e.value)}/>
+         </FormControl>
+         <FormControl sx={{ m: 1, minWidth: 120, display: "flex" }} size="small">
+         <Select isSearchable={false} options={tr} onChange={(e) => props.setStatus(e.value)}/>
+         </FormControl>
           <Button 
           onClick={() => {
             dispatch(setStart({load: 0, type: "user"}));
@@ -48,6 +49,7 @@ const UserFilterNav = (props) => {
           variant="contained" 
           startIcon={<FilterAltIcon />}
           sx={{
+            ml: 1,
             bgcolor: "#5c9499",
             "&:hover": {
               bgcolor: "#387075",
@@ -61,5 +63,4 @@ const UserFilterNav = (props) => {
   );
 };
 
-
-export default UserFilterNav;
+  export default TransactionHistoryFilter;

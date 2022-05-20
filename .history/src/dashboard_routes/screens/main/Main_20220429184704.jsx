@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Box from '@mui/material/Box';
 // import Toolbar from '@mui/material/Toolbar';
 import Grid from '@mui/material/Grid';
@@ -8,9 +8,6 @@ import ChartComponent from "../../../components/ChartComponent";
 import PieChart from "../../../components/PieChart";
 
 const Main = () => {
-  useEffect(() => {
-    document.title = "Go Healthy"
-  }, [])
   return (
     <React.Fragment>
       <Box

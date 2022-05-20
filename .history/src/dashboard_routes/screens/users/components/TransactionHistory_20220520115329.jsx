@@ -32,11 +32,6 @@ const TransactionHistory = (props) => {
   const [type, setType] = useState("");
   const [refresh, setRefresh] = useState(false);
 
-  const reset = () => {
-    setPaginate({...paginate, start: 0, totalPage: 1, page: 1})
-    setRefresh(!refresh)
-  }
-
   let count = paginate.start + 1;
 
   useEffect(() => {
@@ -87,7 +82,7 @@ const TransactionHistory = (props) => {
       <Box sx={{ width: "100%" }}>
       <MiniNavScreen setPage={props.setPage} />
       <Tittle>Transaction Point History</Tittle>
-        <TransactionHistoryFilter setStatus={setStatus} setDesc={setDesc} setType={setType} reset={reset}/>
+        <TransactionHistoryFilter setStatus={setStatus} setDesc={setDesc} setType={setType} setRefresh={setRefresh} refresh={refresh}/>
         <Box
           component="div"
           maxWidth="lg"

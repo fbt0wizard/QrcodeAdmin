@@ -33,7 +33,7 @@ const TransactionHistory = (props) => {
   const [refresh, setRefresh] = useState(false);
 
   const reset = () => {
-    setPaginate({...paginate, start: 0, totalPage: 1, page: 1})
+    setPaginate({...paginate, start: 0, totalPage: 1})
     setRefresh(!refresh)
   }
 

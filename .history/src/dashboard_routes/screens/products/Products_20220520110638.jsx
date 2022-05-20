@@ -45,7 +45,7 @@ const Products = () => {
   let count = productPag.start + 1;
 
   useEffect(() => {
-    document.title = "Go Healthy || Products"
+    document.tittle = "cdhnjmfvhnjm"
     setNoRecord(false);
     if (productPag.showLoader) {
       dispatch(setProducts([]));

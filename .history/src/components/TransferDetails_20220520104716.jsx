@@ -9,7 +9,7 @@ import { axiosGet } from "../functions/apiCalls";
 
 const TransferDetails = (props) => {
   const { transfer } = useSelector((state) => state.data);
-  const [userInfo, setuserInfo] = useState(null);
+  const [userBalance, setuserBalance] = useState(null);
 
   const picked = transfer.filter(function (item) {
     return item.uuid === props.data;
@@ -19,15 +19,13 @@ const TransferDetails = (props) => {
 
   useEffect(() => {
     axiosGet(`users/${picked[0].user}`).then((res) => {
-      setuserInfo(res.data.data);
+      setuserBalance(res.data.data.amount);
     });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  console.log(userInfo)
   return (
     <React.Fragment>
       <Box component="div" sx={{ textAlign: "center", mb: -1, mt: 2 }}>
-        <Tittle>Transfer &amp; User Information</Tittle>
+        <Tittle>Transfer Information</Tittle>
       </Box>
       <Box
         component="div"
@@ -44,29 +42,22 @@ const TransferDetails = (props) => {
         >
           <Table size="small" sx={{ width: 450 }}>
             <TableBody>
-            <TableRow>
-                <TableCell variant="head">User</TableCell>
-                <TableCell>
-                {userInfo !== null ? (
-                    userInfo.name
-                  ) : (
-                    <i className="fa fa-spinner fa-spin" aria-hidden="true"></i>
-                  )}
-                </TableCell>
-              </TableRow>
               <TableRow>
-                <TableCell variant="head">User Point</TableCell>               
+                <TableCell variant="head">User Point</TableCell>
+                <TableRow className="myTable">
+                <TableCell variant="head">Account Name</TableCell>
+                <TableCell>{bankInfo.holder}</TableCell>
+              </TableRow>
                 <TableCell className="__money">
-                  {userInfo !== null ? (
-                    userInfo.amount
+                  {userBalance !== null ? (
+                    userBalance
                   ) : (
                     <i className="fa fa-spinner fa-spin" aria-hidden="true"></i>
                   )}
                 </TableCell>
-                
               </TableRow>
               <TableRow className="myTable">
-                <TableCell variant="head">Bank Account Name</TableCell>
+                <TableCell variant="head">Account Name</TableCell>
                 <TableCell>{bankInfo.holder}</TableCell>
               </TableRow>
               <TableRow>

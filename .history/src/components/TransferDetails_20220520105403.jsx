@@ -27,7 +27,7 @@ const TransferDetails = (props) => {
   return (
     <React.Fragment>
       <Box component="div" sx={{ textAlign: "center", mb: -1, mt: 2 }}>
-        <Tittle>Transfer &amp; User Information</Tittle>
+        <Tittle>Transfer Information</Tittle>
       </Box>
       <Box
         component="div"
@@ -45,7 +45,7 @@ const TransferDetails = (props) => {
           <Table size="small" sx={{ width: 450 }}>
             <TableBody>
             <TableRow>
-                <TableCell variant="head">User</TableCell>
+                <TableCell variant="head">User Name</TableCell>
                 <TableCell>
                 {userInfo !== null ? (
                     userInfo.name

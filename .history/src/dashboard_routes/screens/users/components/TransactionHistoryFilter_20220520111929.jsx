@@ -11,14 +11,14 @@ import {
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import { setloader, setPage, setStart } from "../../../../redux_toolkit/slices/paginationSlice";
 
-const UserFilterNav = (props) => {
+const TransactionHistoryFilter = (props) => {
 
   const dispatch = useDispatch();
 
   const options = [
     { value: "", label: 'All' },
-    { value: 1, label: 'Active' },
-    { value: 0, label: 'Inactive' },
+    { value: 1, label: 'Success' },
+    { value: 0, label: 'Failed' },
   ]
 
   return (
@@ -61,5 +61,4 @@ const UserFilterNav = (props) => {
   );
 };
 
-
-export default UserFilterNav;
+  export default TransactionHistoryFilter;
