@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@chakra-ui/react": "^2.1.2",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.6.2",
@@ -16,6 +17,7 @@
     "antd": "^4.20.3",
     "axios": "^0.26.1",
     "chart.js": "^3.7.1",
+    "material-ui-confirm": "^3.0.4",
     "moment": "^2.29.3",
     "print-el": "^1.0.8",
     "print-html-block": "^2.0.0",
@@ -30,6 +32,7 @@
     "react-redux": "^8.0.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-scroll-component": "^0.6.7",
     "react-select": "^5.3.2",
     "react-swipeable-views": "^0.14.0",
     "react-to-print": "^2.14.7",
