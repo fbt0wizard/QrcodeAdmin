@@ -17,6 +17,7 @@
     "antd": "^4.20.3",
     "axios": "^0.26.1",
     "chart.js": "^3.7.1",
+    "framer-motion": "^6.3.4",
     "material-ui-confirm": "^3.0.4",
     "moment": "^2.29.3",
     "print-el": "^1.0.8",
