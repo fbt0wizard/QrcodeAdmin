@@ -110,11 +110,11 @@ export default function AwardPoint({ picked }) {
             onChange={handleChange}
             required
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-            <MenuItem value={50}>Fifty</MenuItem>
-            <MenuItem value={100}>One Hundred</MenuItem>
+            <MenuItem value={1000}>1000</MenuItem>
+            <MenuItem value={2000}>2000</MenuItem>
+            <MenuItem value={3000}>3000</MenuItem>
+            <MenuItem value={4000}>4000</MenuItem>
+            <MenuItem value={5000}>5000</MenuItem>
           </Select>
         </FormControl>
       </Stack>

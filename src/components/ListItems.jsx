@@ -7,14 +7,14 @@ import InventoryRoundedIcon from "@mui/icons-material/InventoryRounded";
 import QrCode2RoundedIcon from "@mui/icons-material/QrCode2Rounded";
 import SettingsApplicationsRoundedIcon from "@mui/icons-material/SettingsApplicationsRounded";
 import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
-import DashboardIcon from '@mui/icons-material/Dashboard';
+// import DashboardIcon from '@mui/icons-material/Dashboard';
 import { NavLink } from "react-router-dom";
 
 const ListItems = () => {
 
   return (
     <React.Fragment>
-            <NavLink
+      {/* <NavLink
         className={({ isActive }) => (isActive ? "__clicked" : "__not_active")}
         to="/"
       >
@@ -24,7 +24,7 @@ const ListItems = () => {
           </ListItemIcon>
           <ListItemText primary="Dashboard" />
         </ListItemButton>
-      </NavLink>
+      </NavLink> */}
       <NavLink
         className={({ isActive }) => (isActive ? "__clicked" : "__not_active")}
         to="/users"

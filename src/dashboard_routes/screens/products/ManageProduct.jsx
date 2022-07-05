@@ -6,6 +6,7 @@ import ProductBadge from "./components/ProductBadge";
 import ProductControl from "./components/ProductControl";
 import { AlertForDelete } from "../../../components/Alerts";
 import { func } from "../../../functions";
+
 const ManageProduct = () => {
 
   const { alert, alertType, deleteAlert } = useSelector((state) => state.alert);

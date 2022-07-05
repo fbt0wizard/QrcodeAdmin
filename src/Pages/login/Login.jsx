@@ -97,16 +97,18 @@ const Login = () => {
             sx={{ mt: 1 }}
           >
             <TextField
+              size="small"
               id="outlined-required"
               margin="normal"
               required
               fullWidth
               label="Email Address"
               name="email"
-              autoComplete="email"
+              autoComplete="off"
               autoFocus
             />
             <TextField
+              size="small"
               margin="normal"
               required
               fullWidth
@@ -114,12 +116,13 @@ const Login = () => {
               label="Password"
               type="password"
               // id="outlined-required"
-              autoComplete="current-password"
+              autoComplete="off"
             />
             <Button
               ref={submitBtn}
               type="submit"
               fullWidth
+              size="large"
               variant="contained"
               sx={{
                 mt: 3,
