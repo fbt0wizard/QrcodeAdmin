@@ -10,7 +10,10 @@ import {
   MenuItem,
 } from "@mui/material";
 import { AlertSuccess } from "../../../../components/Alerts";
-import { clearAlert, setAlert } from "../../../../redux_toolkit/slices/alertSlice";
+import {
+  clearAlert,
+  setAlert,
+} from "../../../../redux_toolkit/slices/alertSlice";
 import { post } from "../../../../functions/apiCalls";
 
 export default function AwardPoint({ picked }) {
@@ -18,7 +21,6 @@ export default function AwardPoint({ picked }) {
   const { swithScreen } = useSelector((state) => state.others);
   const dispatch = useDispatch();
   const [submitting, setSubmitting] = useState(false);
-  const submitBtn = useRef(null);
   const myForm = useRef(null);
 
   const [age, setAge] = useState("");
@@ -35,7 +37,7 @@ export default function AwardPoint({ picked }) {
       no_of_qrcode: Number(data.get("no_of_qrcode")),
     };
     setSubmitting(true);
-    submitBtn.current.disabled = true;
+
     const res = await post(prep, "products/generate/qr");
     if (res.message === "Data recorded succefully") {
       dispatch(
@@ -49,7 +51,6 @@ export default function AwardPoint({ picked }) {
       console.log(res);
     }
     setSubmitting(false);
-    submitBtn.current.disabled = false;
   };
 
   return (
@@ -110,6 +111,11 @@ export default function AwardPoint({ picked }) {
             onChange={handleChange}
             required
           >
+            <MenuItem value={50}>50</MenuItem>
+            <MenuItem value={100}>100</MenuItem>
+            <MenuItem value={200}>200</MenuItem>
+            <MenuItem value={300}>300</MenuItem>
+            <MenuItem value={500}>500</MenuItem>
             <MenuItem value={1000}>1000</MenuItem>
             <MenuItem value={2000}>2000</MenuItem>
             <MenuItem value={3000}>3000</MenuItem>
@@ -121,7 +127,7 @@ export default function AwardPoint({ picked }) {
       <div>
         <Button
           fullWidth
-          ref={submitBtn}
+          disabled={submitting}
           type="submit"
           variant="contained"
           sx={{

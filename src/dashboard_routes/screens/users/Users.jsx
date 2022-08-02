@@ -130,7 +130,7 @@ export default function Users() {
                   <TableCell sx={{ textTransform: "lowercase" }}>
                     {row.email}
                   </TableCell>
-                  <TableCell>{row.phone}</TableCell>
+                  <TableCell>{`0${row.phone}`}</TableCell>
                   <TableCell className="__money">{row.amount}</TableCell>
                   <TableCell>
                       <Status color={row.status === 1 ? '#39a821' : "#07a8e7"} content={row.status === 1 ? "Active" : "Inactive"}/>
