@@ -26,7 +26,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.2.0
       with:
-        server: qrcode-admin.gohealthy.ng
+        server: ${{ secrets.QR_ADMIN_SERVER }}
         username: ${{ secrets.QR_ADMIN_USERNAME }}
         password: ${{ secrets.QR_ADMIN_PASSWORD }}
         local-dir: build/

@@ -23,7 +23,7 @@ export const setHeader = (file) => {
     case true:
       header = {
         Platform: "admin/0.1.0",
-        "goh-access-token": `QShFN8DrPWLGNsJpkHhMHVWcw8eGqPcnfxDgMUL39MIfAGW6pTN8xKn4zRMWLw3r.${token}`,
+        "goh-access-token": `${process.env.TOKEN}.${token}`,
         processData: false,
         cache: false
       };
@@ -33,7 +33,7 @@ export const setHeader = (file) => {
         Accept: "application/json",
         "Content-Type": "application/json",
         Platform: "admin/0.1.0",
-        "goh-access-token": `QShFN8DrPWLGNsJpkHhMHVWcw8eGqPcnfxDgMUL39MIfAGW6pTN8xKn4zRMWLw3r.${token}`,
+        "goh-access-token": `${process.env.TOKEN}.${token}`,
         "Cache-Control": "no-cache, no-store, must-revalidate",
         Pragma: "no-cache",
         Expires: 0,
@@ -46,7 +46,7 @@ export const setHeader = (file) => {
 
 export const post = async (data, endpoint, file=false) => {
   // const baseUrl = process.env.REACT_APP_API;
-  const baseUrl = "https://qrcode.gohealthy.ng/";
+  const baseUrl = "https://example.com/";
   const headers = setHeader(file);
   try {
     const res = await fetch(`${baseUrl}${endpoint}`, {
@@ -67,7 +67,7 @@ export const post = async (data, endpoint, file=false) => {
 
 export const get = async (endpoint) => {
   // const baseUrl = process.env.REACT_APP_API;
-  const baseUrl = "https://qrcode.gohealthy.ng/";
+  const baseUrl = "https://example.com/";
   const headers = setHeader();
   try {
     const res = await fetch(`${baseUrl}${endpoint}`, {
@@ -84,7 +84,7 @@ export const get = async (endpoint) => {
 // axios get function for api calls with optional parameters
 export const axiosGet = async (endpoint, data = {}, empty = false) => {
   // const baseUrl = process.env.REACT_APP_API;
-  const baseUrl = "https://qrcode.gohealthy.ng/";
+  const baseUrl = "https://example.com/";
   let headers = setHeader();
   let url = empty === false ? `${baseUrl}${endpoint}` : endpoint;
   return axios({
@@ -107,7 +107,7 @@ export const axiosGet = async (endpoint, data = {}, empty = false) => {
 
 export const put = async (data, endpoint, file=false) => {
   // const baseUrl = process.env.REACT_APP_API;
-  const baseUrl = "https://qrcode.gohealthy.ng/";
+  const baseUrl = "https://example.com/";
   const headers = setHeader(file);
   try {
     const res = await fetch(`${baseUrl}${endpoint}`, {
@@ -127,7 +127,7 @@ export const put = async (data, endpoint, file=false) => {
 
 export const deleteData = async (endpoint) => {
   // const baseUrl = process.env.REACT_APP_API;
-  const baseUrl = "https://qrcode.gohealthy.ng/";
+  const baseUrl = "https://example.com/";
   const headers = setHeader();
   try {
     const res = await fetch(`${baseUrl}${endpoint}`, {
@@ -143,7 +143,7 @@ export const deleteData = async (endpoint) => {
 
 // export const postFile = async (action, data = {}) => {
 //   const headers = setHeader(true);
-//   const baseUrl = "https://qrcode.gohealthy.ng/";
+//   const baseUrl = "https://example.com/";
 
 //   try {
 //       let response = await fetch(`${baseUrl}${action}`, {

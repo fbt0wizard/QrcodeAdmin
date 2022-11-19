@@ -160,7 +160,7 @@ function Copyright(props) {
     >
       {"Copyright © "}
       <Link color="inherit" href="#">
-        gohealthy
+        QR ADMIN
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
